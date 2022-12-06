@@ -1,0 +1,61 @@
+@import 'colors.css';
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--screen-text);
+}
+
+header > p {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+header menu.switch {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding: 0.3rem;
+    border-radius: 10px;
+    background-color: var(--keypad-bg);
+    list-style: none;
+}
+header menu.switch button {
+    margin: 0 0.3rem ;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    opacity: 0.5;
+    background-color: transparent;
+    color: var(--screen-text);
+    transition-duration: 0.5s;
+}
+header menu.switch button.selected {
+    opacity: 1;
+    background-color: var(--eq-key-bg);
+    color: var(--eq-key-text);
+}
+header menu.switch button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+header menu.switch button.light:hover {
+    color: #ca5502;
+}
+header menu.switch button.dark:hover {
+    color: #d03f2f;
+}
+header menu.switch button.cyber:hover {
+    color: #00e0d1;
+}
+header menu.switch button.selected:hover {
+    color: var(--eq-key-text);
+}
+
+
+
+
+

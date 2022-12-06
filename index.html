@@ -6,9 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="./src/css/GStyle.css">
-    <script src="./src/js/main.js"></script>
+    <script src="./src/js/main.js" type="module" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>hello there!</h1>
+    <header class="wl">
+        <h1>calc</h1>
+        <p>theme</p>
+        <menu class="switch">
+            <li><button class="theme light selected" value="light">light</button></li>
+            <li><button class="theme dark" value="dark">dark</button></li>
+            <li><button class="theme cyber" value="cyber">cyber</button></li>
+        </menu>
+    </header>
+
+    <main class="wl">
+        <div class="screen">
+            <sup>MEM: <span id="MEM">10,111</span> <span id="OPR">+</span></sup>
+            <p id="calcDisplay">399,981</p>
+        </div>
+        <div class="keypad">
+            <button id="key" class="key" value="7">7</button>
+            <button id="key" class="key" value="8">8</button>
+            <button id="key" class="key" value="9">9</button>
+            <button id="key" class="key ac" value="DEL">DEL</button>
+            <button id="key" class="key" value="4">4</button>
+            <button id="key" class="key" value="5">5</button>
+            <button id="key" class="key" value="6">6</button>
+            <button id="key" class="key" value="DIV">/</button>
+            <button id="key" class="key" value="1">1</button>
+            <button id="key" class="key" value="2">2</button>
+            <button id="key" class="key" value="3">3</button>
+            <button id="key" class="key" value="ADD">+</button>
+            <button id="key" class="key" value="DOT">.</button>
+            <button id="key" class="key" value="0">0</button>
+            <button id="key" class="key" value="MUL">x</button>
+            <button id="key" class="key" value="SUB">_</button>
+            <button id="key" class="key ac rst" value="RST">RESET</button>
+            <button id="key" class="key eq" value="EQL">=</button>
+        </div>
+    </main>
+
+    <footer class="wl attribution">
+        <p>
+            Designed by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+            Coded by <a href="https://dev.anasali.info/">Anas ali</a> as a part of a training project at <a href="https://www.brainnest.consulting/">Brainnnest</a>.
+        </p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,69 @@
+:root {
+    /* backgrounds */
+    --main-bg:#e6e6e6;
+    --keypad-bg:#d1cccc;
+    --screen-bg:#ededed;
+
+    /* keys */
+    --key-bg:#e5e4e1;
+    --key-shadow:#a69d91;
+    --ac-key-bg:#377f86;
+    --ac-key-shadow:#1b5f65;
+    --eq-key-bg:#ca5502;
+    --eq-key-shadow:#893901;
+
+    /* text */
+    --screen-text:#35352c;
+    --screen-sup-text:#35352c8e;
+    --screen-sup-div:#35352c21;
+    --key-text:#35352c;
+    --ac-key-text: white;
+    --eq-key-text: white;
+
+}
+[data-theme="dark"] {
+    /* backgrounds */
+    --main-bg:#3a4764;
+    --keypad-bg:#232c43;
+    --screen-bg:#182034;
+
+    /* keys */
+    --key-bg:#eae3dc;
+    --key-shadow:#b4a597;
+    --ac-key-bg:#637097;
+    --ac-key-shadow:#404e72;
+    --eq-key-bg:#d03f2f;
+    --eq-key-shadow:#93261a;
+
+    /* text */
+    --screen-text:white;
+    --screen-sup-text:#ffffff8e;
+    --screen-sup-div:#ffffff21;
+    --key-text:#444b5a;
+    --ac-key-text: white;
+    --eq-key-text: white;
+
+}
+[data-theme="cyber"] {
+    /* backgrounds */
+    --main-bg:#160628;
+    --keypad-bg:#1d0934;
+    --screen-bg:#1d0934;
+
+    /* keys */
+    --key-bg:#341c4f;
+    --key-shadow:#871c9c;
+    --ac-key-bg:#58077d;
+    --ac-key-shadow:#bc15f4;
+    --eq-key-bg:#00e0d1;
+    --eq-key-shadow:#6cf9f2;
+
+    /* text */
+    --screen-text:#ffe53d;
+    --screen-sup-text:#ffe53d8e;
+    --screen-sup-div:#ffe53d21;
+    --key-text:#ffe53d;
+    --ac-key-text: white;
+    --eq-key-text: #1b2428;
+
+}
