@@ -1,5 +1,6 @@
-export default function numpadValidate(e) {
+import showError from './showError.js';
 
+export default function numpadValidate(e) {
     switch (e.key) {
         case '0':
             return '0';
@@ -32,11 +33,34 @@ export default function numpadValidate(e) {
         case '.':
             return 'DOT';
         case 'Enter':
-            return 'Enter';
+            return 'EQL';
         case 'NumLock':
-            return 'please make sure NumLock is on';
+            return null;
+        case 'Backspace':
+            return 'DEL';
+        case 'Delete':
+            return 'RST';
         default:
-            // alert('ERR: please make sure NumLock is on');
-            return 'please make sure NumLock is on';
+            showError('Please use numbers and make sure NumLock is ON');
+            return null;
     }
+}
+
+export function inputValidator(input) {
+    if (input.type === 'keydown') {
+        return numpadValidate(input);
+    } else if (input.type === 'click') {
+        return input.target.value;
+    }
+}
+
+export function activeNumKey(numpadKeys, e) {
+    numpadKeys.forEach(element => {
+        if (element.value == numpadValidate(e)) {
+            element.classList.toggle('keyActive');
+            setTimeout(() => {
+                element.classList.toggle('keyActive');
+            }, 50);
+        }
+    });
 }
