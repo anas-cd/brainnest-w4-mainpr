@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="wl">
+    <header class="wl fade-in-top fade-in-top__5">
         <h1>calc</h1>
         <p>theme</p>
         <menu class="switch">
@@ -22,12 +22,13 @@
     </header>
 
     <main class="wl">
-        <p id="errMsg" class="ERROR">ERROR:</p>
-        <div class="screen">
+        <div id="errContainer" class="errContainer">
+        </div>
+        <div class="screen fade-in-top fade-in-top__3">
             <sup>MEM: <span id="MEM"></span> <span id="OPR"></span></sup>
             <p id="calcDisplay"></p>
         </div>
-        <div class="keypad">
+        <div class="keypad fade-in-top fade-in-top__0">
             <button id="key" class="key" value="7">7</button>
             <button id="key" class="key" value="8">8</button>
             <button id="key" class="key" value="9">9</button>
@@ -47,12 +48,17 @@
             <button id="key" class="key ac rst" value="RST">RESET</button>
             <button id="key" class="key eq" value="EQL">=</button>
         </div>
+        <p>        
+            <sub class="fade-in">
+            * you can type negative sign using <kbd>'Shift'</kbd> + numpad  <kbd>'-'</kbd> or by typing urderscore.
+            </sub>
+        </p>
     </main>
 
-    <footer class="wl attribution">
+    <footer class="wl attribution fade-in">
         <p>
             Designed by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-            Coded by <a href="https://dev.anasali.info/">Anas ali</a> as a part of a training project at <a href="https://www.brainnest.consulting/">Brainnnest</a>.
+            Coded by <a href="https://dev.anasali.info/" target="_blank">Anas ali</a> for a training project at <a href="https://www.brainnest.consulting/" target="_blank">Brainnnest</a>.
         </p>
     </footer>
 </body>

@@ -27,23 +27,26 @@ body {
     background-color: var(--main-bg);
 }
 
-main p.ERROR {
-    display: none;
+main div.errContainer {
     position: absolute;
     top: 1rem;
     right: 50%;
     transform: translateX(50%);
+    color: white;
+}
+main div.errContainer p {
+    display: none;
+    margin-top: 1rem;
     padding: 1rem;
     background-color: rgb(226, 75, 75);
     border: 2px solid white;
-    color: white;
     font-size: 1.5rem;
     border-radius: 10px;
     box-shadow: 0px 5px 35px -10px red;
+    animation: fade-out 0.3s ease 3.7s 1 forwards normal;
 }
-main p.errActive {
+main div.errContainer p.errActive {
     display: block;
-    animation: fade-in-top 0.3s ease 0s 1 forwards normal;
 }
 
 main div.screen {
@@ -70,7 +73,8 @@ main div.screen p {
     text-align: right;
     font-size: 3rem;
     overflow: hidden;
-    height: 2.5rem;
+    min-height: 3rem;
+    overflow-wrap: break-word;
 }
 
 main div.keypad {
@@ -124,6 +128,20 @@ main div.keypad button.key:active {
     transform: translateY(3px);
 }
 
+main > p {
+    text-align: center;
+}
+main sub {
+    color: var(--screen-sup-text);
+}
+main sub kbd {
+    padding: 0.3rem;
+    border-radius: 10px;
+    color: var(--key-text);
+    background-color: var(--key-bg);
+    border-bottom: 3px solid var(--key-shadow);
+}
+
 footer.attribution {
     text-align: center;
     margin-top: 1rem;
@@ -141,17 +159,51 @@ footer.attribution p a {
     max-width: 33.5rem;
     width: 100%;
 }
+.fade-in {
+    opacity: 0;
+    animation: fade-in 0.8s ease 0s 1 forwards normal;
+}
+.fade-in-top {
+    opacity: 0;
+    animation: fade-in-top 0.8s ease 0s 1 forwards normal;
+}
+.fade-in-top__0 {
+    animation-delay: 0.1s;
+}
+.fade-in-top__3 {
+    animation-delay: 0.3s;
+}
+.fade-in-top__5 {
+    animation-delay: 0.5s;
+}
+.fade-in-top__10 {
+    animation-delay: 0.5s;
+}
 
 /* animations */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 @keyframes fade-in-top {
     0% {
         opacity: 0;
         transform: translateY(-5rem);
-        transform: translateX(50%);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
-        transform: translateX(50%);
+        transform: translateY(0rem);
     }
 }

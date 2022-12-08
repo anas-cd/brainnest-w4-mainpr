@@ -1,10 +1,14 @@
-const errDisplay = document.querySelector('#errMsg');
-
+const errDisplay = document.querySelector('#errContainer');
+const p = document.createElement('p');
 export default function showError(errMsg) {
-    errDisplay.textContent = errMsg;
-    errDisplay.classList.toggle('errActive');
-
+    let currentErrorNode = p.cloneNode(false);
+    currentErrorNode.textContent = errMsg;
+    errDisplay.prepend(currentErrorNode);
+    currentErrorNode.classList.toggle('errActive');
     setTimeout(() => {
-        errDisplay.classList.toggle('errActive');
-    }, 4000);
+       currentErrorNode.remove();
+    }, 4000 );
+
 }
+
+

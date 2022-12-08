@@ -17,8 +17,13 @@ padNumKeys.forEach(el => {
     }
 });
 document.body.addEventListener('keydown', (e) => {
-    main(inputValidator(e));
-    activeNumKey(padNumKeys, e);
+    let input = inputValidator(e);
+    if (input === false) {
+        showError('Please use numbers and make sure NumLock is ON');
+    } else {
+        main(input);
+        activeNumKey(padNumKeys, e);
+    }
 });
 
 // variable declerations 
@@ -121,16 +126,28 @@ function main(input) {
             }
             break;
         case 'DOT':
+            if (decimalDot.hasAttribute('disabled')) {
+                break;
+            }
             decimalDot.setAttribute('disabled', 'true');
             if (buffer) {
                 buffer = buffer + '.';
             } else buffer = '0' + '.';
             display(0, buffer);
             break;
+        case '-':
+            if (!buffer) {
+                buffer += input;
+                display(0, buffer);
+            }
+            break;
         case null:
             break;
         default:
-            buffer = buffer + input;
+            if (buffer == '0' && input == '0') {
+                break;
+            }
+            buffer += input;
             display(0, buffer);
             break;
     }
@@ -138,9 +155,14 @@ function main(input) {
 }
 
 function operate(opr, memory, buffer) {
-    if (!buffer) {
+    if (!buffer && opr) {
+        return memory;
+    } else if (!buffer) {
         return '';
-    }else {
+    } else {
+        if (buffer[buffer.length - 1] == '.') {
+            buffer = buffer.slice(0, -1);
+        }
         switch (opr) {
             case '+':
                 return (Math.round(((Number(memory) + Number(buffer)) + Number.EPSILON) * 10000) / 10000) + '';
@@ -158,6 +180,3 @@ function operate(opr, memory, buffer) {
         }
     }
 }
-
-
-

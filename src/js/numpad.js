@@ -25,6 +25,9 @@ export default function numpadValidate(e) {
         case '+':
             return 'ADD';
         case '-':
+            if (e.shiftKey == true) {
+                return '-'
+            }
             return 'SUB';
         case '*':
             return 'MUL';
@@ -34,15 +37,20 @@ export default function numpadValidate(e) {
             return 'DOT';
         case 'Enter':
             return 'EQL';
-        case 'NumLock':
-            return null;
         case 'Backspace':
             return 'DEL';
         case 'Delete':
             return 'RST';
-        default:
-            showError('Please use numbers and make sure NumLock is ON');
+        case '_':
+            return '-';
+        case 'NumLock':
             return null;
+        case 'Shift':
+            return null;
+        case 'Tab':
+            return null;
+        default:
+            return false;
     }
 }
 
@@ -61,6 +69,8 @@ export function activeNumKey(numpadKeys, e) {
             setTimeout(() => {
                 element.classList.toggle('keyActive');
             }, 50);
+        } else if (numpadValidate(e) === false) {
+            showError('Please use numbers and make sure NumLock is ON');
         }
     });
 }
