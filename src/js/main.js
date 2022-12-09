@@ -184,7 +184,7 @@ function calcRouter(input) {
 
 function operate(opr, memory, buffer) {
     // basic input filtering then calls the proper function depending on operation sign
-    if (!buffer) {
+    if (!buffer || buffer == '-') {
         return '';
     } else {
         if (buffer[buffer.length - 1] == '.') {
