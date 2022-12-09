@@ -38,9 +38,11 @@ function calcRouter(input) {
         case 'ADD':
             if (!buffer && !memory) {
                 break;
-            }else if (!buffer && memory) {
+            } else if (!buffer && memory) {
                 operation = '+';
                 calcDisplay(2, operation);
+                break;
+            } else if (buffer == '-') {
                 break;
             }
             decimalDot.removeAttribute('disabled');
@@ -54,9 +56,11 @@ function calcRouter(input) {
         case 'SUB':
             if (!buffer && !memory) {
                 break;
-            }else if (!buffer && memory) {
+            } else if (!buffer && memory) {
                 operation = '-';
                 calcDisplay(2, operation);
+                break;
+            } else if (buffer == '-') {
                 break;
             }
             decimalDot.removeAttribute('disabled');
@@ -70,9 +74,11 @@ function calcRouter(input) {
         case 'MUL':
             if (!buffer && !memory) {
                 break;
-            }else if (!buffer && memory) {
+            } else if (!buffer && memory) {
                 operation = 'x';
                 calcDisplay(2, operation);
+                break;
+            } else if (buffer == '-') {
                 break;
             }
             decimalDot.removeAttribute('disabled');
@@ -89,6 +95,8 @@ function calcRouter(input) {
             }else if (!buffer && memory) {
                 operation = '/';
                 calcDisplay(2, operation);
+                break;
+            } else if (buffer == '-') {
                 break;
             }
             decimalDot.removeAttribute('disabled');
@@ -134,7 +142,7 @@ function calcRouter(input) {
             }
             break;
         case 'DOT':
-            if (decimalDot.hasAttribute('disabled')) {
+            if (decimalDot.hasAttribute('disabled') || buffer.includes('.')) {
                 break;
             }
             decimalDot.setAttribute('disabled', 'true');
@@ -185,7 +193,7 @@ function calcRouter(input) {
 function operate(opr, memory, buffer) {
     // basic input filtering then calls the proper function depending on operation sign
     if (!buffer || buffer == '-') {
-        return '';
+        return memory;
     } else {
         if (buffer[buffer.length - 1] == '.') {
             buffer = buffer.slice(0, -1);
