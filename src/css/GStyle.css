@@ -22,31 +22,37 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
     background-color: var(--main-bg);
 }
 
-main div.errContainer {
+main div.msgContainer {
     position: absolute;
     top: 1rem;
     right: 50%;
     transform: translateX(50%);
     color: white;
+    z-index: 10;
 }
-main div.errContainer p {
+main div.msgContainer p {
     display: none;
     margin-top: 1rem;
     padding: 1rem;
-    background-color: rgb(226, 75, 75);
     border: 2px solid white;
     font-size: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0px 5px 35px -10px red;
     animation: fade-out 0.3s ease 3.7s 1 forwards normal;
 }
-main div.errContainer p.errActive {
+main div.msgContainer p.errActive {
     display: block;
+    background-color: rgb(226, 75, 75);
+    box-shadow: 0px 5px 35px -10px red;
+}
+main div.msgContainer p.passMsgActive {
+    display: block;
+    background-color: rgb(20, 240, 93);
+    box-shadow: 0px 5px 35px -10px rgb(115, 255, 110);
 }
 
 main div.screen {
@@ -60,14 +66,12 @@ main div.screen {
     color: var(--screen-text);
     
 }
-
 main div.screen sup {
     padding: 0.2rem 0;
     color: var(--screen-sup-text);
     border-bottom: 1px solid var(--screen-sup-div);
     overflow: hidden;
 }
-
 main div.screen p {
     margin-top: 1rem;
     text-align: right;
@@ -128,10 +132,40 @@ main div.keypad button.key:active {
     transform: translateY(3px);
 }
 
-main > p {
-    text-align: center;
+main > details {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: var(--screen-bg);
+}
+summary {
+    display: block;
+    position: relative;
+    padding: 1.2rem;
+    padding-left: 2.2rem;
+    background: var(--keypad-bg);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--screen-text);
+  }
+summary:before {
+    content: '';
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    border-width: .4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--eq-key-bg);
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+}
+details[open] > summary:before {
+transform: rotate(90deg);
 }
 main sub {
+    display: block;
+    margin-top: 0.5rem;
+    line-height: 25px;
     color: var(--screen-sup-text);
 }
 main sub kbd {
@@ -144,7 +178,7 @@ main sub kbd {
 
 footer.attribution {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     color: var(--screen-text);
 }
 footer.attribution > p {
@@ -162,6 +196,9 @@ footer.attribution p a {
 .fade-in {
     opacity: 0;
     animation: fade-in 0.8s ease 0s 1 forwards normal;
+}
+.fade-in__8 {
+    animation-delay: 0.8s;
 }
 .fade-in-top {
     opacity: 0;
@@ -206,4 +243,14 @@ footer.attribution p a {
         opacity: 1;
         transform: translateY(0rem);
     }
+}
+
+/* media breakpoints */
+@media screen and (max-width:600px){
+    body {
+        justify-content: stretch;
+        width: unset;
+        height: unset;
+    }
+    
 }

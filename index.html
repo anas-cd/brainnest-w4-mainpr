@@ -22,7 +22,7 @@
     </header>
 
     <main class="wl">
-        <div id="errContainer" class="errContainer">
+        <div id="msgContainer" class="msgContainer">
         </div>
         <div class="screen fade-in-top fade-in-top__3">
             <sup>MEM: <span id="MEM"></span> <span id="OPR"></span></sup>
@@ -48,14 +48,21 @@
             <button id="key" class="key ac rst" value="RST">RESET</button>
             <button id="key" class="key eq" value="EQL">=</button>
         </div>
-        <p>        
-            <sub class="fade-in">
+        <details class="fade-in fade-in__8">       
+            <summary>instructions</summary> 
+            <sub>
             * you can type negative sign using <kbd>'Shift'</kbd> + numpad  <kbd>'-'</kbd> or by typing urderscore.
             </sub>
-        </p>
+            <sub>
+            * you can 'Reset' using <kbd>'Shift'</kbd> + numpad  <kbd>'.'</kbd> or by pressing <kbd>'Delete'</kbd>.
+            </sub>
+            <sub>
+            * you can copy using <kbd>'Ctrl'</kbd> + <kbd>'c'</kbd> and past using <kbd>'Ctrl'</kbd> + <kbd>'v'</kbd>
+            </sub>
+        </details>
     </main>
 
-    <footer class="wl attribution fade-in">
+    <footer class="wl attribution fade-in fade-in__8">
         <p>
             Designed by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
             Coded by <a href="https://dev.anasali.info/" target="_blank">Anas ali</a> for a training project at <a href="https://www.brainnest.consulting/" target="_blank">Brainnnest</a>.

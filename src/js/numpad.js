@@ -1,5 +1,3 @@
-import showError from './showError.js';
-
 export default function numpadValidate(e) {
     switch (e.key) {
         case '0':
@@ -43,11 +41,23 @@ export default function numpadValidate(e) {
             return 'RST';
         case '_':
             return '-';
+        case 'c' || 'C':
+            if (e.ctrlKey == true) {
+                return 'CPY';
+            }
+            return null;
+        case 'v' || 'V':
+            if (e.ctrlKey == true) {
+                return 'PST';
+            }
+            return null;
         case 'NumLock':
             return null;
         case 'Shift':
             return null;
         case 'Tab':
+            return null;
+        case 'Control':
             return null;
         default:
             return false;
@@ -62,15 +72,14 @@ export function inputValidator(input) {
     }
 }
 
-export function activeNumKey(numpadKeys, e) {
+export function activeNumKey(numpadKeys, input) {
+    // adding 'keyActive' class on the selected button corresponding to the users input
     numpadKeys.forEach(element => {
-        if (element.value == numpadValidate(e)) {
+        if (element.value == input) {
             element.classList.toggle('keyActive');
             setTimeout(() => {
                 element.classList.toggle('keyActive');
             }, 50);
-        } else if (numpadValidate(e) === false) {
-            showError('Please use numbers and make sure NumLock is ON');
         }
     });
 }
